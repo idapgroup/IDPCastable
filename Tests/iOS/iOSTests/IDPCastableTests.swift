@@ -59,6 +59,14 @@ class IDPCastableSpec: QuickSpec {
             }
         }
         
+        describe("func castable<Wrapped>(_ x: Wrapped) -> Castable<Wrapped>") {
+            it("should return Castable wrapping x") {
+                let value = castable(wrapped)
+                
+                expect(ObjectIdentifier(value.extract())).to(equal(ObjectIdentifier(wrapped)))
+            }
+        }
+        
         describe("func castable<Wrapped, Subject>(_ x: Wrapped, f: (Subject) -> ()) -> Castable<Wrapped>") {
             var value = Castable<AnyObject>.value(wrapped)
             
