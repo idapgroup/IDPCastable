@@ -1,0 +1,16 @@
+use_frameworks!
+
+def dev_pods
+  pod 'IDPCastable', :path => '../..'
+end
+
+
+target 'iOS' do
+  dev_pods
+end
+
+target 'iOSTests' do
+  dev_pods
+  pod 'Quick', '~> 1.0.0'
+  pod 'Nimble', '~> 5.1.1'
+end
