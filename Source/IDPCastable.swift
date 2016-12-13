@@ -57,6 +57,7 @@ public enum Castable<Wrapped> {
  
  - Returns: Value wrapped by Castable
  */
+@discardableResult
 public func castable<Wrapped, Subject>(_ x: Wrapped, f: (Subject) -> ()) -> Castable<Wrapped> {
     return Castable.value(x).match(f: f)
 }
@@ -69,6 +70,7 @@ public func castable<Wrapped, Subject>(_ x: Wrapped, f: (Subject) -> ()) -> Cast
  
  - Returns: Same value as *x*
  */
-public func match<Wrapped, Subject>(_ value: Wrapped, f: (Subject) -> ()) -> Wrapped {
-    return castable(value, f: f).extract()
+@discardableResult
+public func match<Wrapped, Subject>(_ x: Wrapped, f: (Subject) -> ()) -> Wrapped {
+    return castable(x, f: f).extract()
 }
