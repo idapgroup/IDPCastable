@@ -6,15 +6,29 @@
 //
 //
 
-func cast<Type, Result>(_ value: Type) -> Result? {
+/**
+ Casts a value from Type to Result?
+ 
+ - Parameter value:     Value to be casted
+ - Returns:             *.some(value: Result)* if the value could be casted, *.none* otherwise
+ */
+public func cast<Type, Result>(_ value: Type) -> Result? {
     return value as? Result
 }
 
-enum Castable<Wrapped> {
+/**
+ Chainable type representing the value matching different types
+ */
+public enum Castable<Wrapped> {
     case value(Wrapped)
     
+    /**
+     Casts a value to function argument type and calls a function, if the cast was successfull.
+     - Parameter f:     Function to call, if the *.value* in can be be casted to function argument
+     - Returns:         Castable wrapping the same value
+     */
     @discardableResult
-    func match<Subject>(f: (Subject) -> ()) -> Castable<Wrapped> {
+    public func match<Subject>(f: (Subject) -> ()) -> Castable<Wrapped> {
         switch self {
         case let .value(x):
             cast(x).map { f($0) }
@@ -22,7 +36,12 @@ enum Castable<Wrapped> {
         }
     }
     
-    func extract() -> Wrapped {
+    /**
+     Extracts a value from Castable
+     
+     - Returns:     Value wrapped by Castable
+     */
+    public func extract() -> Wrapped {
         switch self {
         case let .value(x):
             return x
@@ -30,10 +49,26 @@ enum Castable<Wrapped> {
     }
 }
 
-func match<Wrapped, Subject>(_ x: Wrapped, f: (Subject) -> ()) -> Castable<Wrapped> {
+/**
+ Wraps a value in Castable and matches the function to it.
+ - Parameters:
+    - x:    Value to wrap.
+    - f:    Function to call, if the function type argument can be casted to type of *x*.
+ 
+ - Returns: Value wrapped by Castable
+ */
+public func castable<Wrapped, Subject>(_ x: Wrapped, f: (Subject) -> ()) -> Castable<Wrapped> {
     return Castable.value(x).match(f: f)
 }
 
-func match<Wrapped, Subject>(value: Wrapped, f: (Subject) -> ()) -> Wrapped {
-    return match(value, f: f).extract()
+/**
+ Calls a function if the value can be casted to function argument type
+ - Parameters:
+    - x:    Value to cast.
+    - f:    Function to call, if the function type argument can be casted to type of *x*.
+ 
+ - Returns: Same value as *x*
+ */
+public func match<Wrapped, Subject>(_ value: Wrapped, f: (Subject) -> ()) -> Wrapped {
+    return castable(value, f: f).extract()
 }
