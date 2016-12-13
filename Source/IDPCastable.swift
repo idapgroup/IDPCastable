@@ -50,6 +50,18 @@ public enum Castable<Wrapped> {
 }
 
 /**
+ Wraps a value in Castable.
+ - Parameters:
+    - x:    Value to wrap.
+  
+ - Returns: Value wrapped by Castable
+ */
+@discardableResult
+public func castable<Wrapped>(_ x: Wrapped) -> Castable<Wrapped> {
+    return Castable.value(x)
+}
+
+/**
  Wraps a value in Castable and matches the function to it.
  - Parameters:
     - x:    Value to wrap.
@@ -59,7 +71,7 @@ public enum Castable<Wrapped> {
  */
 @discardableResult
 public func castable<Wrapped, Subject>(_ x: Wrapped, f: (Subject) -> ()) -> Castable<Wrapped> {
-    return Castable.value(x).match(f: f)
+    return castable(x).match(f: f)
 }
 
 /**
