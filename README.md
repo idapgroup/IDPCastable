@@ -2,7 +2,11 @@
 
 IDPCastable is a chainable casting type used to avoid excessive iflets and guards, whe you are working with multiple unrelated types expected under a single variable.
 
-A perfect example is a UITableView presenting different cells without common protocol. 
+You can read more about casting and how it helps you simplify the code in blogposts:
+[Type Inference](http://blog.idapgroup.com/type-inference/)
+[Chainable Casting](http://blog.idapgroup.com/chainable-casting/)
+
+A perfect example is a UITableView presenting different cells without common protocol.
 Code, in the way it's usually written:
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -12,11 +16,11 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     if let pinkCell = cell as? PinkCell {
         pinkCell.fill(withModel: indexPath.row)
     }
-    
+
     if let grayCell = cell as? GrayCell {
         grayCell.fill(withModel: "row = \(indexPath.row), column = \(indexPath.section)")
     }
-    
+
     return cell
 }
 ```
@@ -25,9 +29,9 @@ Code using IDPCastable:
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = (indexPath.row % 2) == 0 ? "GrayCell" : "PinkCell"
-        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        
+
         return castable(cell) { (c: PinkCell) in
                 c.fill(withModel: indexPath.row)
             }
@@ -37,12 +41,14 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             .extract()
     }
 ```
-  
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Tests/iOS directory first.
 
 ## Requirements
+
+Swift 3.0
 
 ## Installation
 
