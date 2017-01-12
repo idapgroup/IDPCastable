@@ -2,16 +2,14 @@
 
 IDPCastable is a chainable casting type used to avoid excessive iflets and guards, whe you are working with multiple unrelated types expected under a single variable.
 
-You can read more about casting and how it helps you simplify the code in blogposts:
-[Type Inference](http://blog.idapgroup.com/type-inference/)
-[Chainable Casting](http://blog.idapgroup.com/chainable-casting/)
+You can read more about casting and how it helps you simplify the code in blogposts: [Type Inference](http://blog.idapgroup.com/type-inference/), [Chainable Casting](http://blog.idapgroup.com/chainable-casting/)
 
 A perfect example is a UITableView presenting different cells without common protocol.
 Code, in the way it's usually written:
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let identifier = (indexPath.row % 2) == 0 ? "GrayCell" : "PinkCell"
-    
+
     let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
     if let pinkCell = cell as? PinkCell {
         pinkCell.fill(withModel: indexPath.row)
