@@ -1,5 +1,5 @@
 PODS:
-  - IDPCastable (0.1.2)
+  - IDPCastable (0.1.3)
   - Nimble (5.1.1)
   - Quick (1.0.0)
 
@@ -10,13 +10,13 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   IDPCastable:
-    :path: ../..
+    :path: "../.."
 
 SPEC CHECKSUMS:
-  IDPCastable: abffbdda48e6fa41b02696b086ecd20102033898
+  IDPCastable: 6ad8ec36d460831e435bd0ea0e3ee3e3998004ac
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
 PODFILE CHECKSUM: 070ff21b3f6c1c582782b9e50313c6c18f7affe7
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0.beta.3
