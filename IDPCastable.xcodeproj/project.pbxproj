@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6966C5411E28D86A002140C2 /* IDPCastable.h in Headers */ = {isa = PBXBuildFile; fileRef = 6966C53F1E28D86A002140C2 /* IDPCastable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6966C5491E28D886002140C2 /* IDPCastable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6966C5481E28D886002140C2 /* IDPCastable.swift */; };
+		6966C57F1E28E07C002140C2 /* IDPCastable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6966C57E1E28E07C002140C2 /* IDPCastable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6966C53C1E28D86A002140C2 /* IDPCastable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IDPCastable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6966C53F1E28D86A002140C2 /* IDPCastable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDPCastable.h; sourceTree = "<group>"; };
 		6966C5401E28D86A002140C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6966C5481E28D886002140C2 /* IDPCastable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDPCastable.swift; sourceTree = "<group>"; };
+		6966C57E1E28E07C002140C2 /* IDPCastable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDPCastable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +32,7 @@
 		6966C5321E28D86A002140C2 = {
 			isa = PBXGroup;
 			children = (
-				6966C5471E28D886002140C2 /* Source */,
+				6966C57D1E28E07C002140C2 /* Source */,
 				6966C53E1E28D86A002140C2 /* IDPCastable */,
 				6966C53D1E28D86A002140C2 /* Products */,
 			);
@@ -55,13 +55,12 @@
 			path = IDPCastable;
 			sourceTree = "<group>";
 		};
-		6966C5471E28D886002140C2 /* Source */ = {
+		6966C57D1E28E07C002140C2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				6966C5481E28D886002140C2 /* IDPCastable.swift */,
+				6966C57E1E28E07C002140C2 /* IDPCastable.swift */,
 			);
-			name = Source;
-			path = ../Source;
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6966C5491E28D886002140C2 /* IDPCastable.swift in Sources */,
+				6966C57F1E28E07C002140C2 /* IDPCastable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +303,7 @@
 				6966C5461E28D86A002140C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
